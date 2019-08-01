@@ -28,7 +28,9 @@ def connectRemoteModel(secret, modelFunc, addr=PROD_SERVER_ADDR):
         # Create the request
         actions = []
         for obsv in response.observations:
-          actions.append(modelFunc(obsv))
+          action = modelFunc(obsv)
+          if action != None:
+            actions.append(action)
         actionPacket = ActionPacket(actions=actions)
         # Set the request to the iterator
         request_queue.put(actionPacket)
