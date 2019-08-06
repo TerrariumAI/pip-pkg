@@ -7,7 +7,7 @@ from .collective_pb2 import *
 from .collective_pb2_grpc import *
 
 
-PROD_SERVER_ADDR = "34.67.243.23:9090" # TODO
+PROD_SERVER_ADDR = "collective.terrarium.ai:9090:9090"
 
 def defaultModelFunc(obsv):
   raise Exception('You need to pass in a model function.')
