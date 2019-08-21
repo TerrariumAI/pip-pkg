@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='terrariumai',
-      version='0.1.4',
+      version='0.1.7',
       description='Utility package for using Terrarium.ai',
       long_description=long_description,
       long_description_content_type="text/markdown",

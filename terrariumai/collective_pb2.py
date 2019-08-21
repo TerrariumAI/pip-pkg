@@ -20,10 +20,32 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='endpoints.terrariumai.collective',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x63ollective.proto\x12 endpoints.terrariumai.collective\"#\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x63lass\x18\x02 \x01(\r\"c\n\x0bObservation\x12\x0f\n\x07isAlive\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\t\x12\x37\n\x05\x63\x65lls\x18\x03 \x03(\x0b\x32(.endpoints.terrariumai.collective.Entity\"7\n\x06\x41\x63tion\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61\x63tion\x18\x02 \x01(\r\x12\x11\n\tdirection\x18\x03 \x01(\r\"X\n\x11ObservationPacket\x12\x43\n\x0cobservations\x18\x01 \x03(\x0b\x32-.endpoints.terrariumai.collective.Observation\"I\n\x0c\x41\x63tionPacket\x12\x39\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32(.endpoints.terrariumai.collective.Action2\x8d\x01\n\nCollective\x12\x7f\n\x12\x43onnectRemoteModel\x12..endpoints.terrariumai.collective.ActionPacket\x1a\x33.endpoints.terrariumai.collective.ObservationPacket\"\x00(\x01\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x63ollective.proto\x12 endpoints.terrariumai.collective\"%\n\x06\x45ntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x63lassID\x18\x02 \x01(\r\"\x8c\x01\n\x06\x45\x66\x66\x65\x63t\x12?\n\x07\x63lassID\x18\x01 \x01(\x0e\x32..endpoints.terrariumai.collective.Effect.Class\x12\r\n\x05value\x18\x02 \x01(\r\x12\x10\n\x08strength\x18\x03 \x01(\r\" \n\x05\x43lass\x12\x08\n\x04NONE\x10\x00\x12\r\n\tPHEROMONE\x10\x01\"\xbc\x01\n\x0bObservation\x12\x0f\n\x07isAlive\x18\x01 \x01(\x08\x12\x0e\n\x06\x65nergy\x18\x02 \x01(\r\x12\x0e\n\x06health\x18\x03 \x01(\r\x12\n\n\x02id\x18\x04 \x01(\t\x12\x37\n\x05sight\x18\x05 \x03(\x0b\x32(.endpoints.terrariumai.collective.Entity\x12\x37\n\x05smell\x18\x06 \x03(\x0b\x32(.endpoints.terrariumai.collective.Effect\"7\n\x06\x41\x63tion\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61\x63tion\x18\x02 \x01(\r\x12\x11\n\tdirection\x18\x03 \x01(\r\"X\n\x11ObservationPacket\x12\x43\n\x0cobservations\x18\x01 \x03(\x0b\x32-.endpoints.terrariumai.collective.Observation\"I\n\x0c\x41\x63tionPacket\x12\x39\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32(.endpoints.terrariumai.collective.Action2\x8d\x01\n\nCollective\x12\x7f\n\x12\x43onnectRemoteModel\x12..endpoints.terrariumai.collective.ActionPacket\x1a\x33.endpoints.terrariumai.collective.ObservationPacket\"\x00(\x01\x30\x01\x62\x06proto3')
 )
 
 
+
+_EFFECT_CLASS = _descriptor.EnumDescriptor(
+  name='Class',
+  full_name='endpoints.terrariumai.collective.Effect.Class',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='NONE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PHEROMONE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=202,
+  serialized_end=234,
+)
+_sym_db.RegisterEnumDescriptor(_EFFECT_CLASS)
 
 
 _ENTITY = _descriptor.Descriptor(
@@ -41,7 +63,7 @@ _ENTITY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='class', full_name='endpoints.terrariumai.collective.Entity.class', index=1,
+      name='classID', full_name='endpoints.terrariumai.collective.Entity.classID', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -60,7 +82,53 @@ _ENTITY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=54,
-  serialized_end=89,
+  serialized_end=91,
+)
+
+
+_EFFECT = _descriptor.Descriptor(
+  name='Effect',
+  full_name='endpoints.terrariumai.collective.Effect',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='classID', full_name='endpoints.terrariumai.collective.Effect.classID', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='endpoints.terrariumai.collective.Effect.value', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='strength', full_name='endpoints.terrariumai.collective.Effect.strength', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _EFFECT_CLASS,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=94,
+  serialized_end=234,
 )
 
 
@@ -79,15 +147,36 @@ _OBSERVATION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='id', full_name='endpoints.terrariumai.collective.Observation.id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
+      name='energy', full_name='endpoints.terrariumai.collective.Observation.energy', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='health', full_name='endpoints.terrariumai.collective.Observation.health', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='endpoints.terrariumai.collective.Observation.id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cells', full_name='endpoints.terrariumai.collective.Observation.cells', index=2,
-      number=3, type=11, cpp_type=10, label=3,
+      name='sight', full_name='endpoints.terrariumai.collective.Observation.sight', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='smell', full_name='endpoints.terrariumai.collective.Observation.smell', index=5,
+      number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -104,8 +193,8 @@ _OBSERVATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=91,
-  serialized_end=190,
+  serialized_start=237,
+  serialized_end=425,
 )
 
 
@@ -149,8 +238,8 @@ _ACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=192,
-  serialized_end=247,
+  serialized_start=427,
+  serialized_end=482,
 )
 
 
@@ -180,8 +269,8 @@ _OBSERVATIONPACKET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=249,
-  serialized_end=337,
+  serialized_start=484,
+  serialized_end=572,
 )
 
 
@@ -211,14 +300,18 @@ _ACTIONPACKET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=339,
-  serialized_end=412,
+  serialized_start=574,
+  serialized_end=647,
 )
 
-_OBSERVATION.fields_by_name['cells'].message_type = _ENTITY
+_EFFECT.fields_by_name['classID'].enum_type = _EFFECT_CLASS
+_EFFECT_CLASS.containing_type = _EFFECT
+_OBSERVATION.fields_by_name['sight'].message_type = _ENTITY
+_OBSERVATION.fields_by_name['smell'].message_type = _EFFECT
 _OBSERVATIONPACKET.fields_by_name['observations'].message_type = _OBSERVATION
 _ACTIONPACKET.fields_by_name['actions'].message_type = _ACTION
 DESCRIPTOR.message_types_by_name['Entity'] = _ENTITY
+DESCRIPTOR.message_types_by_name['Effect'] = _EFFECT
 DESCRIPTOR.message_types_by_name['Observation'] = _OBSERVATION
 DESCRIPTOR.message_types_by_name['Action'] = _ACTION
 DESCRIPTOR.message_types_by_name['ObservationPacket'] = _OBSERVATIONPACKET
@@ -231,6 +324,13 @@ Entity = _reflection.GeneratedProtocolMessageType('Entity', (_message.Message,),
   # @@protoc_insertion_point(class_scope:endpoints.terrariumai.collective.Entity)
   })
 _sym_db.RegisterMessage(Entity)
+
+Effect = _reflection.GeneratedProtocolMessageType('Effect', (_message.Message,), {
+  'DESCRIPTOR' : _EFFECT,
+  '__module__' : 'collective_pb2'
+  # @@protoc_insertion_point(class_scope:endpoints.terrariumai.collective.Effect)
+  })
+_sym_db.RegisterMessage(Effect)
 
 Observation = _reflection.GeneratedProtocolMessageType('Observation', (_message.Message,), {
   'DESCRIPTOR' : _OBSERVATION,
@@ -268,8 +368,8 @@ _COLLECTIVE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=415,
-  serialized_end=556,
+  serialized_start=650,
+  serialized_end=791,
   methods=[
   _descriptor.MethodDescriptor(
     name='ConnectRemoteModel',
